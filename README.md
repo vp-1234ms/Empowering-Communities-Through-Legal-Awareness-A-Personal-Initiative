@@ -43,6 +43,8 @@ Scalable architecture to accommodate additional languages and datasets in the fu
 - [Matplotlib,Seaborn,Statistics]-Data Visualization
 - [CSS, HTML, JS]-Frontend Service
 
+![L](https://github.com/vp-1234ms/Multi-Lingual-Legal-Information-Retrieval-System/assets/102847008/1acf475c-688b-457c-8af9-eae48123c39a)
+
 
 ## 🎉 Built By <a name = "acknowledgments"></a>
 - Vaibhav Vilas Pawar
