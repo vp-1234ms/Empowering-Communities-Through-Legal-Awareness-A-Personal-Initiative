@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('https://st.depositphotos.com/68631180/59651/i/450/depositphotos_596515650-stock-photo-law-court-gavel-concept-image.jpg')center/cover no-repeat;
+        }
+        form {
+            max-width: 80%; /* Updated to make the form more responsive */
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            color: #555;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .language-options {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px; /* Increased padding for a larger font size */
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: none;
+            font-size: 18px; /* Increased font size */
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px; /* Increased padding for a larger button */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        input[type="submit"]:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 600px) {
+            form {
+                max-width: 90%; /* Adjusted for smaller screens */
+            }
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <form action="/result" method="post" id="searchForm">
+        <h1>Select Language and Enter Keyword</h1>
+        <div class="language-options">
+            <label>Select Language:</label>
+            <input type="radio" name="language" id="englishRadio" value="English" onclick="toggleInput()" checked>
+            <label for="englishRadio">English</label>
+            
+            <input type="radio" name="language" id="hindiRadio" value="Hindi" onclick="toggleInput()">
+            <label for="hindiRadio">Hindi</label>
+
+            <input type="radio" name="language" id="marathiRadio" value="Marathi" onclick="toggleInput()">
+            <label for="marathiRadio">Marathi</label>
+        </div>
+
+        <label for="user_input">Enter Keyword or Sentence:</label>
+        <textarea name="user_input" id="user_input" required></textarea>
+        <br>
+        <input type="submit" value="Search" id="searchButton" disabled>
+    </form>
+
+    <script>
+        // Function to enable the search button by default
+        $(document).ready(function() {
+            toggleInput();
+        });
+
+        function toggleInput() {
+            var englishRadio = document.getElementById('englishRadio');
+            var hindiRadio = document.getElementById('hindiRadio');
+            var marathiRadio = document.getElementById('marathiRadio');
+            var user_input = document.getElementById('user_input');
+            var searchButton = document.getElementById('searchButton');
+
+            if (englishRadio.checked) {
+                user_input.disabled = false;
+                searchButton.disabled = false;
+            } else if (hindiRadio.checked || marathiRadio.checked) {
+                user_input.disabled = false;
+                searchButton.disabled = false;
+            } else {
+                user_input.placeholder = '';
+                user_input.value = '';
+                user_input.disabled = false;
+                searchButton.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
