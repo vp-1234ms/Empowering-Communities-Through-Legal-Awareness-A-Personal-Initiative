@@ -1,5 +1,0 @@
-# .vercelignore
-*.md
-*.txt
-__pycache__/
-*.pyc
